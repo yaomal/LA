@@ -21,7 +21,7 @@ In this repository, please find the sample-1.log. The challenge is to parse the 
 
 Output should be :
 
-Date : 2017-08-01 01:11:33,999
+Date : 2017-08-01 01:11:33,999/</br>
 ServiceId : 9999
 ServiceName: dompet
 channelSessionId : 10100000000123456789
