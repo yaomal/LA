@@ -52,35 +52,35 @@ Good Luck!!!
 
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++</br>
-Answer
+Answer</br>
 
-Question-One :
-import random
+Question-One :</br>
+import random</br>
 print(random.randint(1, 100))
 
-===================================================================
-Question-Two:
-#/bin/sh
+===================================================================</br>
+Question-Two:</br>
+#/bin/sh</br>
 find /var/www/html/ -type f -iname "*.php" -exec cp {} /opt/html/ \;
 
-====================================================================
-Question-Three:
-input {
-  file {
-    path => "sample-1.log"
-    start_position => "beginning"
-  }
-}
+====================================================================</br>
+Question-Three:</br>
+input {</br>
+  file {</br>
+    path => "sample-1.log"</br>
+    start_position => "beginning"</br>
+  }</br>
+}</br>
 
-filter {
-   grok {
-        match => { "message" => "%{TIMESTAMP_ISO8601:date}\|%{WORD:serviceid}\{\"channelSessionId\":\"%{WORD:channelSessionId}\",\"remark\":\"%{WORD:remark}\",\"OriginatorConversationID\":\"%{WORD:OriginatorConversationID}\",\"Msisdn\":\"%{WORD:Msisdn}\",\"CommandId\":\"%{WORD:CommandId}" }
-   }
-}
+filter {</br>
+   grok {</br>
+        match => { "message" => "%{TIMESTAMP_ISO8601:date}\|%{WORD:serviceid}\{\"channelSessionId\":\"%{WORD:channelSessionId}\",\"remark\":\"%</br>{WORD:remark}\",\"OriginatorConversationID\":\"%{WORD:OriginatorConversationID}\",\"Msisdn\":\"%{WORD:Msisdn}\",\"CommandId\":\"%{WORD:CommandId}" }</br>
+   }</br>
+}</br>
 
-output {
-  elasticsearch { hosts => ["localhost:9200"] }
-  stdout { codec => rubydebug }
+output {</br>
+  elasticsearch { hosts => ["localhost:9200"] }</br>
+  stdout { codec => rubydebug }</br>
 }
 
 ====================================================================
