@@ -83,26 +83,26 @@ output {</br>
   stdout { codec => rubydebug }</br>
 }
 
-====================================================================
-Question-Four:
-input {
-  file {
-    path => "sample-2.log"
-    start_position => "beginning"
-  }
-}
+====================================================================</br>
+Question-Four:</br>
+input {</br>
+  file {</br>
+    path => "sample-2.log"</br>
+    start_position => "beginning"</br>
+  }</br>
+}</br>
 
-filter {
-   grok {
-        match => { "message" => "{%{QS}:\"%{UUID:Data.UUID}\",%{QS}:%{WORD:Data.rt},%{QS}:\"%{WORD:Data.port}\",%{QS}:\"%{IP:Data.ip}\",%{QS}:\"%{WORD:Data.appli}\",%{QS}:\"%{WORD:Data.versi}\",%{QS}:\"%{UNIXPATH:Data.path}" }
+filter {</br>
+   grok {</br>
+        match => { "message" => "{%{QS}:\"%{UUID:Data.UUID}\",%{QS}:%{WORD:Data.rt},%{QS}:\"%{WORD:Data.port}\",%{QS}:\"%{IP:Data.ip}\",%{QS}:\"%</br>{WORD:Data.appli}\",%{QS}:\"%{WORD:Data.versi}\",%{QS}:\"%{UNIXPATH:Data.path}" }</br>
 
-   }
-}
+   }</br>
+}</br>
 
 output {
-  elasticsearch { hosts => ["localhost:9200"] }
-  stdout { codec => rubydebug }
-}
+  elasticsearch { hosts => ["localhost:9200"] }</br>
+  stdout { codec => rubydebug }</br>
+}</br>
 
-Thanks
+Thanks</br>
 Yaomal
