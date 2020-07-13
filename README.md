@@ -49,3 +49,60 @@ Data.path: /xx/yy/xyz/aha</br>
 =================================================
 
 Good Luck!!!
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Answer
+
+Question-One :
+import random
+print(random.randint(1, 100))
+
+===================================================================
+Question-Two:
+#/bin/sh
+find /var/www/html/ -type f -iname "*.php" -exec cp {} /opt/html/ \;
+
+====================================================================
+Question-Three:
+input {
+  file {
+    path => "sample-1.log"
+    start_position => "beginning"
+  }
+}
+
+filter {
+   grok {
+        match => { "message" => "%{TIMESTAMP_ISO8601:date}\|%{WORD:serviceid}\{\"channelSessionId\":\"%{WORD:channelSessionId}\",\"remark\":\"%{WORD:remark}\",\"OriginatorConversationID\":\"%{WORD:OriginatorConversationID}\",\"Msisdn\":\"%{WORD:Msisdn}\",\"CommandId\":\"%{WORD:CommandId}" }
+   }
+}
+
+output {
+  elasticsearch { hosts => ["localhost:9200"] }
+  stdout { codec => rubydebug }
+}
+
+====================================================================
+Question-Four:
+input {
+  file {
+    path => "sample-2.log"
+    start_position => "beginning"
+  }
+}
+
+filter {
+   grok {
+        match => { "message" => "{%{QS}:\"%{UUID:Data.UUID}\",%{QS}:%{WORD:Data.rt},%{QS}:\"%{WORD:Data.port}\",%{QS}:\"%{IP:Data.ip}\",%{QS}:\"%{WORD:Data.appli}\",%{QS}:\"%{WORD:Data.versi}\",%{QS}:\"%{UNIXPATH:Data.path}" }
+
+   }
+}
+
+output {
+  elasticsearch { hosts => ["localhost:9200"] }
+  stdout { codec => rubydebug }
+}
+
+Thanks
+Yaomal
