@@ -1,5 +1,4 @@
 L2 Challenges monitoring-test
-L2 Challenges monitoring-test
 
 =================================================
 
